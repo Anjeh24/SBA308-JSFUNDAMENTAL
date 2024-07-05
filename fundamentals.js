@@ -14,13 +14,13 @@ const AssignmentGroup = {
         {
             id: 1,
             name: "Basics of HTML",
-            due_at: "2024-09-03",
+            due_at: "2024-07-03",
             points_possible: 100
         },
         {
             id: 2,
             name: "Basics of CSS",
-            due_at: "2024-09-04",
+            due_at: "2024-08-04",
             points_possible: 100
 
         },
@@ -32,3 +32,48 @@ const AssignmentGroup = {
         }
     ]
 };
+
+// Array holding submission and details of each learner
+
+const LearnerSubmission = [
+    {
+    learner_id: 133,
+    assignment_id: 1,
+    submission: {
+    submitted_at: "2024-07-02",
+    score: 90
+    }
+    },
+    {
+    learner_id: 133,
+    assignment_id: 2,
+    submission: {
+    submitted_at: "2024-08-02",
+    score: 100
+     }
+},
+{
+    learner_id: 133,
+    assignment_id: 3,
+    submission: {
+    submitted_at: "2024-09-4",
+    score: 275
+    }
+},
+{
+    learner_id: 122,
+    assignment_id: 1,
+    submission: {
+    submitted_at: "2024-07-02",
+    score: 75
+    }
+},
+{
+    learner_id: 122,
+    assignment_id: 2,
+    submission: {
+    submitted_at: "2024-08-03",
+    score: 80
+    }
+}
+];
