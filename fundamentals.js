@@ -78,6 +78,14 @@ const LearnerSubmission = [
 }
 ];
 
+let possiblePtsAss1 = AssignmentGroup.assignments[0].points_possible;//.assignments;//assignments[0].points_possible; //100
+//console.log(possiblePtsAss1);
+let possiblePtsAss2 = AssignmentGroup.assignments[1].points_possible;//100
+
+let possiblePtsAss3 = AssignmentGroup.assignments[2].points_possible;//300
+//console.log(possiblePtsAss3);
+
+
 let learnerOneId = LearnerSubmission[0].learner_id;//133  accessing learner ids
 //console.log(learnerOneId);
 let learnerTwoId = LearnerSubmission[3].learner_id;//122
@@ -93,6 +101,27 @@ let lrnriiScore1 = LearnerSubmission[3].submission.score; //75 accessing scores 
 
 let lrnriiScore2 =LearnerSubmission[4].submission.score;//80  
 //console.log(lrnriiScore2);
+
+//Learners 133 weighted average for assignment 1 and 2
+let wgtAvgForId133 = (lrnriScore1 + lrnriScore2) /(possiblePtsAss1 + possiblePtsAss2); // 0.95
+//console.log(wgtAvgForId133);
+let assgmtOneAvg133 = lrnriiScore1 / possiblePtsAss1;//0.75
+//console.log(assgmtOneAvg133);
+let assgmtTwoAvg133 = lrnriScore2 / possiblePtsAss2; //1
+//console.log(assgmtTwoAvg133);
+
+//Lerners 122 weighted average for assignment 1 and 2
+
+let wgtAvgForId122 = (lrnriiScore1 + lrnriiScore2) / (possiblePtsAss1 + possiblePtsAss2); //0.775
+//console.log(wgtAvgForId122);
+let assgmtOneAvg122 = lrnriiScore1 / possiblePtsAss1;// 0.75
+//console.log(assgmtOneAvg122);
+let assgmtTwoAvg122 = lrnriiScore2  / possiblePtsAss2;//0.8
+//console.log(assgmtTwoAvg122);
+
+
+
+
 
 
 
