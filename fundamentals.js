@@ -77,3 +77,32 @@ const LearnerSubmission = [
     }
 }
 ];
+
+let learnerOneId = LearnerSubmission[0].learner_id;//133  accessing learner ids
+//console.log(learnerOneId);
+let learnerTwoId = LearnerSubmission[3].learner_id;//122
+
+let stdntIds = [learnerOneId, learnerTwoId]; //[133, 122] array that contains learner ids.
+//console.log(stdntIds);
+let lrnriScore1 = LearnerSubmission[0].submission.score//90  accessing scores of learner id 133 / i (in Roman numerals)
+//console.log(lrnriScore1);
+let lrnriScore2 = LearnerSubmission[1].submission.score;//100
+//console.log(lrnriScore2);
+let lrnriiScore1 = LearnerSubmission[3].submission.score; //75 accessing scores of learner id 122 /    ii (Roman numerals for second id)
+//console.log(lrnriiScore1);
+
+let lrnriiScore2 =LearnerSubmission[4].submission.score;//80  
+//console.log(lrnriiScore2);
+
+
+
+function getLearnerData(course, avg, submissions) {
+    const results = [
+        {
+
+        },
+        {
+
+        }
+    ]
+}
