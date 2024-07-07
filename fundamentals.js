@@ -14,13 +14,13 @@ const AssignmentGroup = {
         {
             id: 1,
             name: "Basics of HTML",
-            due_at: "2024-07-03",
+            due_at: "2023-07-03",
             points_possible: 100
         },
         {
             id: 2,
             name: "Basics of CSS",
-            due_at: "2024-08-04",
+            due_at: "2023-08-04",
             points_possible: 100
 
         },
@@ -40,7 +40,7 @@ const LearnerSubmission = [
     learner_id: 133,
     assignment_id: 1,
     submission: {
-    submitted_at: "2024-07-02",
+    submitted_at: "2023-07-02",
     score: 90
     }
     },
@@ -48,7 +48,7 @@ const LearnerSubmission = [
     learner_id: 133,
     assignment_id: 2,
     submission: {
-    submitted_at: "2024-08-02",
+    submitted_at: "2023-08-02",
     score: 100
      }
 },
@@ -56,7 +56,7 @@ const LearnerSubmission = [
     learner_id: 133,
     assignment_id: 3,
     submission: {
-    submitted_at: "2024-09-4",
+    submitted_at: "2023-09-4",
     score: 275
     }
 },
@@ -64,7 +64,7 @@ const LearnerSubmission = [
     learner_id: 122,
     assignment_id: 1,
     submission: {
-    submitted_at: "2024-07-02",
+    submitted_at: "2023-07-02",
     score: 75
     }
 },
@@ -72,7 +72,7 @@ const LearnerSubmission = [
     learner_id: 122,
     assignment_id: 2,
     submission: {
-    submitted_at: "2024-08-03",
+    submitted_at: "2023-08-20",
     score: 80
     }
 }
@@ -139,7 +139,7 @@ for (let i = 0; i <= wgtAveragesPercentage.length; i++){
     break;
 }
 
-
+//do while loop
 let msg;
 let i = 0;
 do {
@@ -150,6 +150,27 @@ do {
 }
 
 while (i <  wgtAveragesPercentage.length); //A do while loop that notifies if student passed or not.
+
+
+//course-id error handling with throw and catch
+
+let crseId = courseInfo.id; //accessing the course-info id and caching it to be used later. // 425
+console.log(crseId);
+let course_id = 100;
+
+    //this block is to test input of course_id si in case the wrong value is entered, it would throw an error to let the user know.
+    // when right course_id is entered, it doesn't throw the error message.
+    try{
+        if(course_id !== crseId){
+            throw "Course number is not valid"
+
+        } 
+    }
+    catch(err) {
+    err;
+    console.log(err);
+    }
+
 
 
 
