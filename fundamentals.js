@@ -118,6 +118,38 @@ let assgmtOneAvg122 = lrnriiScore1 / possiblePtsAss1;// 0.75
 //console.log(assgmtOneAvg122);
 let assgmtTwoAvg122 = lrnriiScore2  / possiblePtsAss2;//0.8
 //console.log(assgmtTwoAvg122);
+let wgtAverages = [];
+wgtAverages.push(wgtAvgForId133, wgtAvgForId122); //[0.95, 0.775]
+//console.log(wgtAverages);
+let wgtAveragesPercentage = [(0.95 * 100), (0.775 * 100)]; //weighted averages in percentage [95, 77.5]
+//console.log(wgtAveragesPercentage);
+wgtAveragesPercentage = [95, 77.5];
+
+let notification = " "; //to notify if student passed alongside grade.
+let passed;
+
+for (let i = 0; i <= wgtAveragesPercentage.length; i++){
+    if (wgtAveragesPercentage[i] >= 70){
+     notification = "Congrats you passed!";
+     //console.log(notification);
+    }else {
+        notification = "You failed!";
+    }
+    
+    break;
+}
+
+
+let msg;
+let i = 0;
+do {
+    i++;
+    if([i] >= 70);
+    msg = "Passed!";
+    console.log(msg);
+}
+
+while (i <  wgtAveragesPercentage.length); //A do while loop that notifies if student passed or not.
 
 
 
@@ -125,7 +157,7 @@ let assgmtTwoAvg122 = lrnriiScore2  / possiblePtsAss2;//0.8
 
 
 
-function getLearnerData(course, avg, submissions) {
+function getLearnerData(course, ag, submissions) {
     const results = [
         {
 
