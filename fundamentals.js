@@ -156,7 +156,7 @@ while (i <  wgtAveragesPercentage.length); //A do while loop that notifies if st
 
 let crseId = courseInfo.id; //accessing the course-info id and caching it to be used later. // 425
 console.log(crseId);
-let course_id = 100;
+let course_id = 0;
 
     //this block is to test input of course_id si in case the wrong value is entered, it would throw an error to let the user know.
     // when right course_id is entered, it doesn't throw the error message.
@@ -181,10 +181,22 @@ let course_id = 100;
 function getLearnerData(course, ag, submissions) {
     const results = [
         {
+            id: 133,    //All of the values in the objects were gotten from operations above and chached in variables which I then inserted
+            avg:0.95,   //into the array objects to hold learners' details. At least, I TRIED!!!!!!!!!!!!!!!!!!!!
+            1: 0.75,
+            2: 1
 
         },
         {
+            id: 122,
+            avg:0.775,
+            1: 0.75,
+            2: 0.8,
 
         }
-    ]
+    ];
+    return results;
 }
+
+const result = getLearnerData(courseInfo, AssignmentGroup, LearnerSubmission);
+console.log(result);
