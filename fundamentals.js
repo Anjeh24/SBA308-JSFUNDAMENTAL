@@ -179,24 +179,77 @@ let course_id = 0;
 
 
 function getLearnerData(course, ag, submissions) {
-    const results = [
-        {
-            id: 133,    //All of the values in the objects were gotten from operations above and chached in variables which I then inserted
-            avg:0.95,   //into the array objects to hold learners' details. At least, I TRIED!!!!!!!!!!!!!!!!!!!!
-            1: 0.75,
-            2: 1
+    //Getting the date element
+    const currentDate = new Date();
+    //object to hold each learners data
+    const learnersData = {};
 
-        },
-        {
-            id: 122,
-            avg:0.775,
-            1: 0.75,
-            2: 0.8,
-
+    // Iterate through each submission
+    submissions.forEach(submission => {
+        // Find the corresponding assignment for each submission
+        const assignment = ag.assignments.find(a => a.id === submission.assignment_id);
+        if (!assignment) {
+            throw new Error("Assignment not found");
         }
-    ];
-    return results;
+        // Convert due date and submission date to Date objects for comparison
+        const dueDate = new Date(assignment.due_at);
+        const submittedDate = new Date(submission.submission.submitted_at);
+        // Skip assignments not yet due
+        if (dueDate > currentDate) {
+            return;
+        }
+        // Initialize data structure for each learner if not already done
+        if (!learnersData[submission.learner_id]) {
+            learnersData[submission.learner_id] = {
+                id: submission.learner_id,
+                avg: 0,
+                totalPoints: 0,
+                totalWeightedScore: 0
+            };
+        }
+        const learnerData = learnersData[submission.learner_id];
+        let score = submission.submission.score;
+        // Deduct 10% if the assignment was submitted late
+        if (submittedDate > dueDate) {
+            score -= assignment.points_possible * 0.1;
+        }
+        // Calculate the percentage score for the assignment and store it
+        learnerData[assignment.id] = (score / assignment.points_possible).toFixed(2);
+        learnerData.totalPoints += assignment.points_possible;
+        learnerData.totalWeightedScore += score;
+    });
+    // Convert the learnersData object into the desired array format
+    return Object.values(learnersData).map(learnerData => {
+        // Calculate the average score for each learner
+        learnerData.avg = (learnerData.totalWeightedScore / learnerData.totalPoints).toFixed(2);
+        // Clean up temporary properties
+        delete learnerData.totalPoints;
+        delete learnerData.totalWeightedScore;
+        return learnerData;
+    });
+
+    
 }
 
 const result = getLearnerData(courseInfo, AssignmentGroup, LearnerSubmission);
 console.log(result);
+
+
+//what to expect given my numbers
+    //const results = [
+    //     {
+    //         id: 133,    //All of the values in the objects were gotten from operations above and chached in variables which I then inserted
+    //         avg:0.95,   //into the array objects to hold learners' details. At least, I TRIED!!!!!!!!!!!!!!!!!!!!
+    //         1: 0.75,
+    //         2: 1
+
+    //     },
+    //     {
+    //         id: 122,
+    //         avg:0.775,
+    //         1: 0.75,
+    //         2: 0.8,
+
+    //     }
+    // ];
+    // return results;
